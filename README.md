@@ -12,7 +12,7 @@ CAB（エンジニア適性検査）の暗算練習ができる Web アプリで
 
 ## 使用技術
 
-Next.js (App Router) / TypeScript / TailwindCSS
+#### Next.js (App Router) / TypeScript / TailwindCSS
 
 スタイル設定
 
@@ -27,7 +27,7 @@ Next.js (App Router) / TypeScript / TailwindCSS
 ## ディレクトリ構成
 
 <details>
-<summary>一覧が表示されます</sammary>
+<summary>一覧が表示されます</summary>
 
 ```
 cab-app-project/
@@ -65,3 +65,10 @@ cab-app-project/
 ```
 
 </details>
+
+## 参考
+
+- サイト  
+  [キャリアワールド CAB 適性試験対策ページ](https://career-world.net/quiz/test_cab_arithmetic.php)
+- 書籍  
+  [『かんたんモダンサイトが作れる』]()
