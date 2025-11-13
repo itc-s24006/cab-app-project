@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeModeScript, ThemeProvider } from "flowbite-react";
-import { ThemeToggle } from "@/components/ThemeToggle/page";
+import FlowbiteProvider from "@/components/FlowbiteProvider";
+import ThemeToggle from "@/components/ThemeToggle/page";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -26,17 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <head>
-        {/* Flowbiteのダークモード制御スクリプト */}
-        <ThemeModeScript />
-      </head>
       <body>
-        <ThemeProvider>
-          <header className="flex justify-end p-4 border-b">
-            <ThemeToggle />
-          </header>
-          <main>{children}</main>
-        </ThemeProvider>
+        <FlowbiteProvider>{children}</FlowbiteProvider>
       </body>
     </html>
   );

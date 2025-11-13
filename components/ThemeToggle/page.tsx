@@ -1,7 +1,8 @@
 "use client";
 
+// import FlowbiteProvider from "../FlowbiteProvider";
 import { DarkThemeToggle } from "flowbite-react";
 
-export function ThemeToggle() {
+export default function ThemeToggle() {
   return <DarkThemeToggle />;
 }

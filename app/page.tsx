@@ -2,8 +2,7 @@
 
 import styles from "./page.module.css";
 import { getQuizList } from "@/lib/microcms";
-import { Button, DarkThemeToggle } from "flowbite-react";
-
+import ThemeToggle from "@/components/ThemeToggle/page";
 export default async function Home() {
   const quizList = await getQuizList();
   const quizzes = quizList.contents.map((quiz, index) => ({
@@ -19,14 +18,15 @@ export default async function Home() {
           <br />
           練習
         </h1>
-        <div>
+        {/* <div>
           {quizzes.map((quiz) => (
             <div key={quiz.id}>
               <p>Q{quiz.q_number}:</p>
               <p>{quiz.question}</p>
             </div>
           ))}
-        </div>
+        </div> */}
+        <ThemeToggle />
         <button className={styles.button}>ボタン</button>
       </div>
     </main>
