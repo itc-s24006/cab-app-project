@@ -38,6 +38,7 @@
 
 import { Button } from "flowbite-react";
 import ThemeToggle from "@/components/ThemeToggle/page";
+import MainCard from "@/components/MainCard/page";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -53,36 +54,29 @@ export default function HomePage() {
       </div>
 
       {/* 2. メインカード: CAB 計算テスト */}
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl">
-        <h1 className="text-2xl font-bold mb-4 text-center bg-gray-200 dark:bg-gray-700 p-3 rounded text-gray-900 dark:text-white">
-          【適性試験】 CAB 計算問題(暗算)
-        </h1>
+      <MainCard>
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+          CAB 計算テスト
+        </h2>
 
-        <div className="mt-6 text-center">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-            CAB 計算テスト
-          </h2>
-
-          <div className="flex flex-col items-center gap-4">
-            <p className="mt-4 text-gray-700 dark:text-gray-300">
-              問題のレベルを選択してください。
-            </p>
-            <Button size="xl" color="light" className="w-full max-w-sm">
-              レベル1
-            </Button>
-            <Button size="xl" color="light" className="w-full max-w-sm">
-              レベル2
-            </Button>
-            <Button size="xl" color="light" className="w-full max-w-sm">
-              レベル3
-            </Button>
-            <Button size="xl" color="blue" className="w-full max-w-sm">
-              適性試験を受ける
-            </Button>
-          </div>
+        <div className="flex flex-col items-center gap-4">
+          <p className="mt-4 text-gray-700 dark:text-gray-300">
+            問題のレベルを選択してください。
+          </p>
+          <Button size="xl" color="light" className="w-full max-w-sm">
+            レベル1
+          </Button>
+          <Button size="xl" color="light" className="w-full max-w-sm">
+            レベル2
+          </Button>
+          <Button size="xl" color="light" className="w-full max-w-sm">
+            レベル3
+          </Button>
+          <Button size="xl" color="blue" className="w-full max-w-sm">
+            適性試験を受ける
+          </Button>
         </div>
-      </div>
-
+      </MainCard>
       {/* 3. 説明セクション */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold border-l-4 border-blue-500 pl-2 mb-4 text-gray-900 dark:text-white">

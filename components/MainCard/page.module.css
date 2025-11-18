@@ -1,0 +1,7 @@
+.main_card {
+  @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl;
+}
+
+.main_card h1 {
+  @apply text-2xl font-bold mb-4 text-center bg-gray-200 dark:bg-gray-700 p-3 rounded text-gray-900 dark:text-white;
+}

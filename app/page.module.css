@@ -1,14 +1,4 @@
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
   display: flex;
   /* min-height: 100vh; */
   align-items: center;
@@ -93,10 +83,6 @@ a.secondary {
   border-color: var(--button-secondary-border);
 }
 
-.header {
-  @apply flex justify-end items-center mb-4 border-b border-gray-200 dark:border-gray-700 pb-2;
-}
-
 .button {
   @apply text-red-700 border border-red-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2;
   @apply focus:outline-none focus:ring-4 focus:ring-red-300;
@@ -128,23 +114,5 @@ a.secondary {
     font-size: 32px;
     line-height: 40px;
     letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
   }
 }
