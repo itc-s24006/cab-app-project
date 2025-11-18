@@ -83,6 +83,10 @@ a.secondary {
   border-color: var(--button-secondary-border);
 }
 
+.header {
+  @apply flex justify-end items-center mb-4 border-b border-gray-200 dark:border-gray-700 pb-2;
+}
+
 .button {
   @apply text-red-700 border border-red-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2;
   @apply focus:outline-none focus:ring-4 focus:ring-red-300;
