@@ -37,9 +37,18 @@
 // app/page.tsx (Server Component)
 
 import styles from "./page.module.css";
-import { LevelButton, DecideButton } from "@/components/Button/page";
+import { LevelButton } from "@/components/Button/page";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
+
+  const handoleStart = (level: string) => {
+    console.log("Selected level:", level);
+    // レベルに応じたクイズページへ遷移
+    router.push(`/quiz?level=${level}`);
+  };
+
   return (
     <>
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -50,15 +59,12 @@ export default function HomePage() {
         <p className="mt-4 text-gray-700 dark:text-gray-300">
           問題のレベルを選択してください。
         </p>
-        <LevelButton title="レベル1" />
-        <LevelButton title="レベル2" />
-        <LevelButton title="レベル3" />
-        <DecideButton title="適性試験を受ける" />
+        <LevelButton onStart={handoleStart} />
       </div>
-      {/* 3. 説明セクション */}
+      {/* 選択した問題ごとに説明文が変わる */}
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold border-l-4 border-blue-500 pl-2 mb-4 text-gray-900 dark:text-white">
-          CAB試験・計算問題の説明・対策法
+          レベル❍のヒント・目的
         </h2>
         <p className="text-gray-700 dark:text-gray-300">
           はじめての方は説明を読んでから試験を受けてください。また、この試験には画像を利用します。画像が見えないブラウザをご利用の場合は注意してください。
