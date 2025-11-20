@@ -1,7 +1,3 @@
-11/19 進捗  
-選択肢ボタン追加・次問題に切り替え完了・レベル選択機能 途中  
-エラー対処中で動かないです。
-
 ## 概要
 
 CAB（エンジニア適性検査）の暗算練習ができる Web アプリです。  
@@ -37,26 +33,28 @@ CAB（エンジニア適性検査）の暗算練習ができる Web アプリで
 cab-app-project/
 ├── app/
 │   ├── globals.css              # 全体共通スタイル
-│   ├── layout.tsx               # グローバルCSSを読み込み
+│   ├── layout.tsx               # 共通コンポーネント呼び出し
 │   ├── page.tsx                 # トップページ
 │   ├── page.module.css          # トップページ専用CSS
 │   ├── quiz/
-│   │   ├── page.tsx             # 暗算問題ページ
+│   │   ├── page.tsx             # APIから問題一覧取得
+│   │   ├── QuizClient.tsx       # １問ずつ切り替わる問題ページ
 │   │   └── page.module.css      # quizページ専用CSS
 │   └── result/
 │       ├── page.tsx             # 結果ページ
 │       └── page.module.css      # resultページ専用CSS
 │
 ├── components/
+│   ├── Button/
+│   │   └── page.tsx
 │   ├── Header/
+│   │   └── page.tsx
+│   ├── MainCard/
 │   │   ├── page.tsx
 │   │   └── page.module.css
-│   ├── QuizCard/
-│   │   ├── page.tsx
-│   │   └── page.module.css
-│   └── Button/
-│       ├── page.tsx
-│       └── page.module.css
+│   └── ThemeToggle/             # ダークモード切替スイッチ(未実装)
+│   │   └── page.tsx
+│   └── FlowbiteProvider.tsx
 │
 ├── lib/
 │   └── microcms.ts              # CMSクライアント設定
