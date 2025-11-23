@@ -14,11 +14,7 @@ CAB（エンジニア適性検査）の暗算練習ができる Web アプリで
 
 #### Next.js (App Router) / TypeScript / TailwindCSS
 
-スタイル設定
-
-- globals.css
-- CSS modules(Scoped CSS)
-
+スタイル設定 : globals.css, CSS modules(Scoped CSS)  
 問題管理 : microCMS  
 ソース管理 : Github  
 デプロイ : Vercel  
@@ -73,4 +69,4 @@ cab-app-project/
 - サイト  
   [キャリアワールド CAB 適性試験対策ページ](https://career-world.net/quiz/test_cab_arithmetic.php)
 - 書籍  
-  [『かんたんモダンサイトが作れる』]()
+  [Next.js ＋ヘッドレス CMS ではじめる！ かんたんモダン Web サイト制作入門](https://www.shoeisha.co.jp/book/detail/9784798183664#errata)
