@@ -14,7 +14,7 @@ CAB（エンジニア適性検査）の暗算練習ができる Web アプリで
 
 #### Next.js (App Router) / TypeScript / TailwindCSS
 
-スタイル設定 : globals.css, CSS modules(Scoped CSS)  
+スタイル設定 : globals.css, Tailwind CSS, Flowbite  
 問題管理 : microCMS  
 ソース管理 : Github  
 デプロイ : Vercel  
@@ -33,12 +33,10 @@ cab-app-project/
 │   ├── page.tsx                 # トップページ
 │   ├── page.module.css          # トップページ専用CSS
 │   ├── quiz/
-│   │   ├── page.tsx             # APIから問題一覧取得
-│   │   ├── QuizClient.tsx       # １問ずつ切り替わる問題ページ
-│   │   └── page.module.css      # quizページ専用CSS
+│   │   ├── page.tsx            # APIから問題一覧取得
+│   │   └── QuizClient.tsx      # １問ずつ切り替わる問題ページ
 │   └── result/
-│       ├── page.tsx             # 結果ページ
-│       └── page.module.css      # resultページ専用CSS
+│       └── page.tsx             # 結果ページ
 │
 ├── components/
 │   ├── Button/
