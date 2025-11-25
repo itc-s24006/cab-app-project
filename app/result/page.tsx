@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import type { Quiz } from "@/lib/microcms";
+import { BackButton } from "@/components/Button/page";
+import styles from "./page.module.css";
 
 const QUIZ_DATA_KEY = "quiz_data";
 const ANSWERS_KEY = "answers_data";
@@ -20,13 +22,14 @@ export default function ResultPage() {
   const [newAnswers, setNewAnswers] = useState<string[]>([]);
   const [quizResults, setQuizResults] = useState<ResultItem[]>([]); // 結果格納用
   const [isLoading, setIsLoading] = useState(true);
+  // 展開状態
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     try {
       // ローカルストレージから取得
       const quizzesJson = localStorage.getItem(QUIZ_DATA_KEY);
       const answersJson = localStorage.getItem(ANSWERS_KEY);
-      // console.log("ResultPage側:" + quizzesJson);
 
       if (answersJson && quizzesJson) {
         const quizzesArray: Quiz[] = JSON.parse(quizzesJson);
@@ -56,9 +59,6 @@ export default function ResultPage() {
           }
         );
         setQuizResults(result);
-
-        // データ読みだしたらローカルストレージから削除
-        // localStorage.removeItem(QUIZ_DATA_KEY);
       }
     } catch (error) {
       console.error("ローカルストレージからの読み込みに失敗しました:", error);
@@ -89,40 +89,108 @@ export default function ResultPage() {
       ? { src: "/nice.png", alt: "よくできました" }
       : { src: "/notbad.png", alt: "もうすこしがんばりましょう" };
 
+  // 展開トグル
+  const toggleExpand = (index: number) => {
+    setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
+
   return (
     <>
-      <div>
-        <h2 className="text-2xl font-bold">クイズ結果発表</h2>
-        <div className="w-full max-w-md flex gap-7 mt-20">
-          <div className="flex-1">
-            問題数: {totalQuestions}
-            <br /> 正答数: {correctCount}/{totalQuestions}
-            <br /> 得点: {score}点
+      <div className={styles.header}>
+        <h2 className="text-3xl font-extrabold mb-6 text-center">
+          クイズ結果発表
+        </h2>
+
+        {/* 統計エリア */}
+        <div className={styles.statsContainer}>
+          <div className={styles.statCard}>
+            <div className={styles.statTitle}>問題数</div>
+            <div className={styles.statValue}>{totalQuestions}</div>
           </div>
-          <div className="flex-1">
+
+          <div className={styles.statCard}>
+            <div className={styles.statTitle}>正答数</div>
+            <div className={styles.statValue}>
+              {correctCount}/{totalQuestions}
+            </div>
+          </div>
+
+          <div className={styles.statCard}>
+            <div className={styles.statTitle}>得点</div>
+            <div className={styles.statValue}>{score} 点</div>
+          </div>
+
+          <div className={styles.imageWrap}>
             <Image
               src={resultImage.src}
               alt={resultImage.alt}
-              width={150}
-              height={150}
+              width={160}
+              height={160}
             />
           </div>
         </div>
       </div>
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold border-l-4 border-blue-500 pl-2 mb-4 text-gray-900 dark:text-white">
-          問題正誤表
-        </h2>
-        <p className="text-gray-700 dark:text-gray-300">
+
+      <BackButton className={styles.backButton} />
+
+      <div className={styles.resultsCard}>
+        <h3 className={styles.resultsHeader}>問題正誤表</h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           ※クリックで問題詳細を表示します。
         </p>
+
         {quizResults.length > 0 ? (
-          <ul className="mt-4 text-gray-700 dark:text-gray-300">
-            {quizResults.map((quiz, index) => (
-              <li key={index} className="mb-2">
-                第{index + 1}問: {quiz.question}
-              </li>
-            ))}
+          <ul className={styles.questionList}>
+            {quizResults.map((quiz, index) => {
+              const isOpen = !!expanded[index];
+              return (
+                <li key={index} className={styles.questionItem}>
+                  <button
+                    type="button"
+                    onClick={() => toggleExpand(index)}
+                    className={styles.toggleButton}
+                  >
+                    <span className={styles.questionText}>
+                      第{index + 1}問: {quiz.question}
+                    </span>
+                    <span
+                      className={`${styles.resultBadge} ${
+                        quiz.isCorrect ? "text-green-600" : "text-red-600"
+                      }`}
+                    >
+                      {quiz.isCorrect ? "✅ 正解" : "❌ 不正解"}
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className={styles.detailPanel}>
+                      <p className="mb-3 text-lg">
+                        <span className={styles.questionLabel}>問題文：</span>{" "}
+                        {quiz.question}
+                      </p>
+                      <p className="mb-2 text-lg">
+                        <span className={styles.questionLabel}>
+                          あなたの回答：
+                        </span>
+                        <span
+                          className={
+                            quiz.isCorrect
+                              ? styles.answerTextCorrect
+                              : styles.answerTextWrong
+                          }
+                        >
+                          {quiz.selectedAnswer ?? "未選択"}
+                        </span>
+                      </p>
+                      <p className="text-lg">
+                        <span className={styles.questionLabel}>正答：</span>
+                        <span className="ml-2">{quiz.correctAnswer}</span>
+                      </p>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         ) : (
           <p className="mt-4 text-gray-700 dark:text-gray-300">

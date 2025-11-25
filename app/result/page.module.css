@@ -1,0 +1,76 @@
+.header {
+  @apply mb-8;
+}
+
+.statsContainer {
+  @apply w-full max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8 mt-6 text-center;
+}
+
+.statCard {
+  @apply flex-none px-6 py-4 bg-white/60 dark:bg-gray-800/60 rounded-lg shadow-sm;
+}
+
+.statTitle {
+  @apply text-2xl font-semibold;
+}
+
+.statValue {
+  @apply text-3xl font-bold mt-1;
+}
+
+.imageWrap {
+  @apply flex-none;
+}
+
+.resultsCard {
+  @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md;
+}
+
+.resultsHeader {
+  @apply text-2xl font-bold border-l-4 border-blue-500 pl-2 mb-4 text-gray-900 dark:text-white;
+}
+
+.questionList {
+  @apply mt-4 text-gray-700 dark:text-gray-300 flex flex-col items-center;
+}
+
+.questionItem {
+  @apply mb-4 w-full max-w-3xl mx-auto;
+}
+
+.toggleButton {
+  @apply w-full text-left flex items-center justify-between gap-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition;
+  cursor: pointer;
+}
+
+.questionText {
+  @apply font-medium text-lg leading-tight truncate;
+}
+
+.resultBadge {
+  @apply ml-4 text-lg font-semibold;
+}
+
+.detailPanel {
+  @apply mt-3 p-5 bg-gray-50 dark:bg-gray-700 rounded-lg text-center shadow-sm;
+}
+
+.questionLabel {
+  @apply font-semibold;
+}
+
+.answerTextCorrect {
+  @apply text-green-600 ml-2;
+}
+
+.answerTextWrong {
+  @apply text-red-600 ml-2;
+}
+
+.backButton {
+  @apply mx-auto mb-6 px-3 py-1 text-sm rounded-md inline-block w-fit;
+  @apply bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100;
+  @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+  cursor: pointer;
+  text-align: center;
+}
