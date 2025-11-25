@@ -25,10 +25,6 @@ export default function QuizClient({ quizzes }: { quizzes: Quiz[] }) {
     { field: "c5", text: quiz.c5 },
   ];
 
-  // const handleSelect = (field: string) => {
-  //   setSelected(field);
-  // };
-
   const handleNext = () => {
     if (!selected) {
       alert("回答を選択してください");
