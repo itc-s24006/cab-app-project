@@ -8,7 +8,7 @@ export type Quiz = {
   c3: string;
   c4: string;
   c5: string;
-  answer: string;
+  answerId: string;
   level: string;
 } & MicroCMSListContent;
 

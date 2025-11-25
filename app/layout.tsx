@@ -22,9 +22,7 @@ export default function RootLayout({
           <main className="flex-grow container mx-auto p-4">
             {/* メインコンテンツが幅を占めるようにw-fullを指定 */}
             <div className="w-full">
-              <MainCard>
-                {children} {/* app/page.tsxの内容 */}
-              </MainCard>
+              <MainCard>{children}</MainCard>
             </div>
           </main>
 

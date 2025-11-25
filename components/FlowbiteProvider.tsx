@@ -13,7 +13,7 @@ export default function FlowbiteProvider({
       <ThemeModeScript />
       <ThemeProvider>
         <header className="flex justify-end p-4 border-b">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </header>
         <main>{children}</main>
       </ThemeProvider>

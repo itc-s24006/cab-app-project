@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "@/app/page.module.css";
-import ThemeToggle from "@/components/ThemeToggle/page";
+// import ThemeToggle from "@/components/ThemeToggle/page";
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
         {/* <span className="text-sm text-gray-500 dark:text-gray-400 mr-4">
           トップページ &gt; クイズ・適性検査 &lt; CAB 計算テスト
         </span> */}
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
     </>
   );
